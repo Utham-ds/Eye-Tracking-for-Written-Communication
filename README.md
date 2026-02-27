@@ -1,4 +1,3 @@
-text
 # Eye-Blink Communication GUI
 
 A webcam-based assistive communication tool that lets a user select icons like “Food”, “Water”, “Restroom”, or “Emergency” using intentional eye blinks. The current icon is shown in a PyQt window, and a long blink selects it and triggers spoken feedback using text-to-speech.[web:289][web:291]
