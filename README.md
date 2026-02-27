@@ -27,7 +27,7 @@ pip install pyqt5 opencv-python pyttsx3
 ```
 
 ## Project Structure
-text
+```
 project/
   main.py
   images/
@@ -38,28 +38,28 @@ project/
     outdoor.jpg
     fan.png
     apple.jpg
-    
+```  
 Make sure the image file names match those used in IMAGE_ITEMS inside main.py.
 
 ## How It Works
 
-OpenCV captures frames from the webcam and runs:
+- OpenCV captures frames from the webcam and runs:
 
-A face detector (haarcascade_frontalface_default.xml).
+- A face detector (haarcascade_frontalface_default.xml).
 
-An eye detector (haarcascade_eye.xml).[web:199][web:287]
+- An eye detector (haarcascade_eye.xml).[web:199][web:287]
 
-If eyes are detected, the system treats them as open.
+- If eyes are detected, the system treats them as open.
 
-When eyes are not detected for longer than a threshold (BLINK_MIN_CLOSED_TIME), it is treated as a long blink.
+- When eyes are not detected for longer than a threshold (BLINK_MIN_CLOSED_TIME), it is treated as a long blink.
 
-A long blink selects the currently displayed icon:
+- A long blink selects the currently displayed icon:
 
-The selected label is printed to the console.
+- The selected label is printed to the console.
 
-A background text-to-speech worker speaks the label using pyttsx3.
+- A background text-to-speech worker speaks the label using pyttsx3.
 
-Icons automatically cycle every few seconds, so the user can wait for the desired option and then blink to choose it.[web:289][web:291]
+- Icons automatically cycle every few seconds, so the user can wait for the desired option and then blink to choose it.[web:289][web:291]
 
 ## Running the App
 From the project folder:
@@ -70,13 +70,13 @@ python main.py
 
 ## Usage tips
 
-Ensure your face and eyes are clearly visible in front of the webcam.
+- Ensure your face and eyes are clearly visible in front of the webcam.
 
-Watch the “Eye Tracking” window to see the bounding box and the “Eyes Open / Eyes Closed” status.
+- Watch the “Eye Tracking” window to see the bounding box and the “Eyes Open / Eyes Closed” status.
 
-When your desired icon (e.g. “Water”) is visible in the PyQt window, close your eyes briefly (a long blink) to select it.
+- When your desired icon (e.g. “Water”) is visible in the PyQt window, close your eyes briefly (a long blink) to select it.
 
-Press Esc in the camera window or close the main GUI window to exit.
+- Press Esc in the camera window or close the main GUI window to exit.
 
 ## Configuration
 You can tune behaviour by editing these constants in main.py:
@@ -86,22 +86,22 @@ python
 BLINK_MIN_CLOSED_TIME = 0.6   # seconds eyes must be closed to register a blink
 CYCLE_INTERVAL = 2.0          # seconds before moving to the next icon
 ```
-Increase BLINK_MIN_CLOSED_TIME if normal blinks are being detected accidentally.
+- Increase BLINK_MIN_CLOSED_TIME if normal blinks are being detected accidentally.
 
-Increase CYCLE_INTERVAL if icons change too quickly.
+- Increase CYCLE_INTERVAL if icons change too quickly.
 
 ## Limitations
-Blink detection relies on Haar cascades and simple heuristics, so performance can vary with:
+- Blink detection relies on Haar cascades and simple heuristics, so performance can vary with:
 
-Lighting conditions.
+- Lighting conditions.
 
-Camera quality and resolution.
+- Camera quality and resolution.
 
-Glasses or occlusions.
+- Glasses or occlusions.
 
-Timing thresholds may need to be tuned for different users.
+- Timing thresholds may need to be tuned for different users.
 
-This is a prototype for demonstration and learning, not a medically certified assistive device.
+- This is a prototype for demonstration and learning, not a medically certified assistive device.
 
 ## Author
 Utham Kumar Mohanlal
